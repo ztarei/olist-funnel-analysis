@@ -12,7 +12,6 @@
 - [Results & Business Recommendations](#results--business-recommendations)
 - [Next Steps](#next-steps)
 - [Repository Structure](#repository-structure)
-- [How to Run](#how-to-run)
 
 ---
 
@@ -104,6 +103,10 @@ review_score = 5           →  Stage 6: 5-Star Review
 
 Olist's fulfilment engine is **strong** — 97% of placed orders reach the customer. The biggest volume drop is at the satisfaction layer: not all delivered customers leave reviews, and converting reviewers to 5-star advocates is the key growth lever.
 
+<p align="center">
+  <img src="olist_output/funnel1_order_lifecycle.png" width="900"/>
+</p>
+
 > **Recommendation:** Send a post-delivery review nudge at Day 3 and Day 7, personalised with the product name. Offer a small loyalty credit for completing a review. Target the 42.8% of delivered customers who didn't give 5 stars.
 
 ---
@@ -111,6 +114,10 @@ Olist's fulfilment engine is **strong** — 97% of placed orders reach the custo
 ### 2. Revenue Conversion Funnel
 
 The revenue waterfall is clean — gross order value tracks very closely to delivered and collected revenue. Cancellations are low (0.6%) but concentrated in certain periods.
+
+<p align="center">
+  <img src="olist_output/funnel2_revenue_conversion (1).png" width="900"/>
+</p>
 
 > **Recommendation:** Audit cancellations by seller and product category. Monitor credit card instalments of 10–12 as a forward-looking bad debt indicator. Build seller scorecards that include cancellation rate as a ranking factor.
 
@@ -120,6 +127,10 @@ The revenue waterfall is clean — gross order value tracks very closely to deli
 
 **91.9% on-time delivery** is competitive. The biggest controllable variable is seller handling time — the gap between payment approval and carrier handoff. Some sellers process quickly; others are slow.
 
+<p align="center">
+  <img src="olist_output/funnel3_delivery_performance.png" width="900"/>
+</p>
+
 > **Recommendation:** Flag sellers whose median handling time exceeds 3 days. Introduce a seller performance tier system — fast handlers get better placement. Show buyers estimated delivery windows at checkout based on seller historical performance.
 
 ---
@@ -127,6 +138,10 @@ The revenue waterfall is clean — gross order value tracks very closely to deli
 ### 4. Customer Satisfaction Funnel
 
 76.3% positive reviews indicates a generally happy customer base. However, **1-star reviews (11.8%)** represent a high-risk churn signal — these customers are unlikely to return and may actively discourage others.
+
+<p align="center">
+  <img src="olist_output/funnel4_satisfaction.png" width="900"/>
+</p>
 
 > **Recommendation:** Trigger immediate customer service outreach for every 1-star review. Build a 24-hour recovery SLA: refund offer, replacement, or seller escalation. Track whether recovery actions convert 1-star customers to returning buyers.
 
@@ -136,6 +151,10 @@ The revenue waterfall is clean — gross order value tracks very closely to deli
 
 Olist's cohort retention data reveals the classic marketplace challenge: most customers purchase once and don't return. Month-1 retention drops sharply, with further attrition through Month 6.
 
+<p align="center">
+  <img src="olist_output/cohort_retention.png" width="900"/>
+</p>
+
 > **Recommendation:** Launch a post-purchase "what to buy next" recommendation engine based on product category. Send a second-purchase incentive (discount or free freight) to all first-time buyers at Day 14. Build a loyalty programme with cross-category purchase rewards.
 
 ---
@@ -143,6 +162,10 @@ Olist's cohort retention data reveals the classic marketplace challenge: most cu
 ### 6. RFM: 23,560 At Risk + Lost Customers
 
 Nearly a quarter of the customer base is either at risk of churning or already lost. This is the largest recoverable revenue pool in the dataset.
+
+<p align="center">
+  <img src="olist_output/rfm_segmentation (1).png" width="900"/>
+</p>
 
 > **Recommendation:** Champions → VIP early access and exclusive products; Loyal → referral programme with reward; At Risk → time-limited win-back offer (48-hour urgency); Lost → lightweight re-engagement survey to understand departure reason and test minimal-friction re-entry offers.
 
@@ -166,27 +189,26 @@ Nearly a quarter of the customer base is either at risk of churning or already l
 ```
 olist-funnel-analysis/
 │
-├── olist_data/                           # Raw CSV files from Kaggle
+├── olist_dataset/                           # Raw CSV files from Kaggle
+│   ├── olist_customers_dataset.csv
 │   ├── olist_orders_dataset.csv
-│   ├── olist_order_items_dataset.csv
 │   ├── olist_order_payments_dataset.csv
 │   ├── olist_order_reviews_dataset.csv
-│   ├── olist_products_dataset.csv
-│   └── olist_customers_dataset.csv
+│   ├── olist_order_items_dataset.csv
+│   └── olist_products_dataset.csv
 │
-├── olist_outputs/                        # Generated charts & exports
+├── olist_output/                        # Generated charts & exports
+│   ├── cohort_retention.png
+│   ├── dropoff_deep_dive.png
 │   ├── funnel1_order_lifecycle.png
 │   ├── funnel2_revenue_conversion.png
 │   ├── funnel3_delivery_performance.png
 │   ├── funnel4_satisfaction.png
-│   ├── cohort_retention.png
-│   ├── dropoff_deep_dive.png
-│   ├── rfm_segmentation.png
-│   └── olist_summary_stats.csv
+│   ├── olist_summary_stats.csv
+│   └── rfm_segmentation.png
 │
 ├── olist_funnel_analysis.ipynb           # Main analysis notebook (14 sections)
-├── README.md                             # This file
-└── requirements.txt                      # Python dependencies
+└── README.md                             # This file
 ```
 
 ---
